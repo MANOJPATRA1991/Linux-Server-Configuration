@@ -81,11 +81,6 @@ grader ALL=(ALL) NOPASSWD:ALL
 
 ```
 
-Connect to the server as grader
-```
-ssh grader@35.154.244.58 -p 2200
-```
-
 ## Generate SSH key pair for grader
 The key is generated on the local machine using **ssh-keygen**.
 On the server:
