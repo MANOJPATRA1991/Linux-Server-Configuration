@@ -49,6 +49,14 @@ Enable firewall
 ```
 sudo ufw enable
 ```
+## Disable root login
+
+To disable root login, I added the following line of code to /etc/ssh/sshd_config
+with the nano editor
+```
+# Disable root login
+PermitRootLogin no
+```
 
 ## Create new user
 
@@ -106,4 +114,22 @@ Restart the service
 ```
 sudo service ssh restart
 ```
+
+## Cnfigure the local timezone to UTC
+
+sudo timedatectl set-timezone Etc/UTC
+
+
+## Install apache2 and libapache2-mod-wsgi modules
+
+```
+sudo apt-get install apache2
+sudo apt-get install libapache2-mod-wsgi
+```
+
+## Install PostgreSQL
+```
+sudo apt-get install postgresql postgresql-contrib
+```
+
 
