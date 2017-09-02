@@ -110,7 +110,7 @@ Restart the service
 sudo service ssh restart
 ```
 
-## Cnfigure the local timezone to UTC
+## Configure the local timezone to UTC
 
 sudo timedatectl set-timezone Etc/UTC
 
