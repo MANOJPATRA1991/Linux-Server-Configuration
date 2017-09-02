@@ -108,11 +108,10 @@ Log in to grader account by
 ssh grader@35.154.244.58 -i ~/.ssh/project
 
 ```
-**passphrase is grader@1234**
 
 Edit /etc/ssh/sshd_config file by logging in from the grader account to disable tunnelled clear text passwords.
 
-Restart the service
+Restart the service when done editing.
 ```
 sudo service ssh restart
 ```
