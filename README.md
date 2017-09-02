@@ -1,6 +1,10 @@
 # Linux-Server-Configuration
 
-This is the final of Udacity's [Full Stack Web Development Nanodegree]().
+This is the final project of Udacity's [Full Stack Web Development Nanodegree]().
+
+## Project Requirements
+
+Set up an Apache server to serve the Item Catalog Project created as part of the Nanodegree program as a wsgi application.
 
 ## Set up Ubuntu Linux server instance on Amazon Lightsail
 URL: http://ec2-35-154-244-58.ap-south-1.compute.amazonaws.com/
