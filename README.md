@@ -117,7 +117,7 @@ sudo service ssh restart
 ```
 
 ## Configure the local timezone to UTC
-Local time zone was set using `sudo dpkg-reconfigure tzdata` followed by selection of geographical area.
+Set local time zone using `sudo dpkg-reconfigure tzdata` followed by selection of geographical area.
 
 It can also be set using
 ```
