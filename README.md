@@ -144,7 +144,7 @@ CREATE USER dbuser;
 
 Set password for dbuser
 ```
-ALTER ROLE catalog WITH PASSWORD 'catalog';
+ALTER ROLE dbuser WITH PASSWORD 'catalog';
 ```
 
 Give user "dbuser" permission to "catalog" application database
