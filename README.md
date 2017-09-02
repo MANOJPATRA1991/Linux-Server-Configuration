@@ -3,6 +3,7 @@
 This is the final project of Udacity's [Full Stack Web Development Nanodegree]().
 
 ## Set up Ubuntu Linux server instance on Amazon Lightsail
+URL: http://ec2-35-154-244-58.ap-south-1.compute.amazonaws.com/
 IP address: 35.154.244.58
 SSH Port:
 
