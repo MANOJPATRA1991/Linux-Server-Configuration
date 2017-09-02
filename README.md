@@ -232,6 +232,11 @@ sudo apt-get install git
   chown grader:grader /var/www/CatalogProject/GameZone/app/uploads
   ```
   
+  14. Restart the apache2 server.
+  ```
+  sudo service apache2 restart
+  ```
+  
   ## References
   
   1. [Amazon Lightsail](https://lightsail.aws.amazon.com)
