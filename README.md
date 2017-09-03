@@ -7,11 +7,11 @@ This is the final project of Udacity's [Full Stack Web Development Nanodegree]()
 Set up an Apache server to serve the Item Catalog Project created as part of the Nanodegree program as a wsgi application.
 
 ## Set up Ubuntu Linux server instance on Amazon Lightsail
-URL: http://ec2-35-154-244-58.ap-south-1.compute.amazonaws.com/
+URL: http://ec2-35-154-68-147.ap-south-1.compute.amazonaws.com/
 
-IP address: 35.154.244.58
+IP address: 35.154.68.147
 
-SSH Port: 2200
+Port: 2200
 
 ## Update all packages
 
@@ -57,6 +57,13 @@ Enable firewall
 ```
 sudo ufw enable
 ```
+
+## Disable port 22
+
+Edit the /etc/ssh/sshd_config file to set Port to 2200.
+Then restart the service with `sudo service ssh restart`.
+
+
 ## Disable root login
 
 To disable root login, I added the following line of code to /etc/ssh/sshd_config
@@ -103,9 +110,10 @@ Set file permissions:
 chmod 700 .ssh
 chmod 644 .ssh/authorized_keys
 ```
+
 Log in to grader account by
 ```
-ssh grader@35.154.244.58 -i ~/.ssh/project
+ssh grader@35.154.68.147 -p 2200 -i ~/.ssh/project
 
 ```
 
@@ -117,6 +125,7 @@ sudo service ssh restart
 ```
 
 ## Configure the local timezone to UTC
+
 Set local time zone using `sudo dpkg-reconfigure tzdata` followed by selection of geographical area.
 
 It can also be set using
@@ -207,7 +216,7 @@ sudo apt-get install git
   
   10. Enable GameZone.conf file in /etc/apache2/sites-available.
   ```
-  sudo a2ensite GameZone.
+  sudo a2ensite GameZone.conf
   ```
   11. Restart apache2 server with
   ```
