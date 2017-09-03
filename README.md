@@ -179,7 +179,7 @@ sudo apt-get install git
 8. GameZone.conf:
   ```
   <VirtualHost *:80>
-                ServerName 35.154.244.58
+                ServerName 35.154.68.147
                 ServerAdmin patra.manoj0@gmail.com
 
                 WSGIScriptAlias / /var/www/CatalogProject/app.wsgi
