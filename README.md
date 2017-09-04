@@ -355,6 +355,60 @@ sudo apt-get install git
   
   ```
   
+  #### Monitoring server status information
+  1. Although we know that Apache is installed, lets check by running the following commands, so that if it isn't, the installations will be done:
+  ```
+  sudo apt-get update
+  sudo apt-get install -y apache2 apache2-utils
+  ```
+ 
+  2. To ensure that the dynazoom functionality, which is responsible for zooming into the generated graphs, work properly on click, install the following:
+  ```
+  sudo apt-get install -y libcgi-fast-perl libapache2-mod-fcgid
+  ```
+  
+  3. Ensure fcgi module is enabled by running the following line of code:
+  ```
+  /usr/sbin/apachectl -M | grep -i cgi
+  ```
+  If the output is `fcgid_module (shared)`, then everything is good to proceed.
+  
+  4. Install **munin** to enable server status monitoring.
+  ```
+  sudo apt-get install -y munin
+  ```
+  
+  5. Edit the main configuration file for **munin**:
+  ```
+  cd /etc/munin
+  sudo nano munin.conf
+  ```
+  Uncomment the following lines of code:
+  ```
+  dbdir     /var/lib/munin
+  htmldir   /var/cache/munin/www
+  logdir    /var/log/munin
+  rundir    /var/run/munin
+
+  tmpldir /etc/munin/templates
+  ```
+  Change htmldir to /var/www/munin.
+  
+  Look for 
+  ```
+  [localhost.localdomain]
+    address 127.0.0.1
+    use_node_name yes
+  ```
+  and change to 
+  ```
+  [MuninMaster]
+    address 127.0.0.1
+    use_node_name yes
+  ```
+  
+  Save the file.
+  
   
   ## References
   
