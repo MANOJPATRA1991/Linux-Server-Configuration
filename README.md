@@ -321,7 +321,8 @@ sudo apt-get install git
   As we want the email to include the relevant log lines, you make use of action_mwl.
   
   5. Update sshd and ssh parameters:
-    ```
+  
+  ```
   [sshd]
   enabled = true
 
