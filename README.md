@@ -256,6 +256,41 @@ sudo apt-get install git
   sudo service apache2 restart
   ```
   
+  ## Extra much needed configurations
+  
+  #### Auto-update packages
+  1. Install unattended-upgrades package
+  ```
+  sudo dpkg-reconfigure --priority=low unattended-upgrades apt-listchanges
+  ```
+  2. Add the following line to /etc/apt/apt.conf.d/20auto-upgrades so that the script generates more verbose output
+  ```
+  APT::Periodic::Verbose "1";
+  ```
+  3. Edit the /etc/apt/apt.conf.d/50unattended-upgrades file by uncommenting the following line of code:
+  ```
+  "${distro_id} ${distro_codename}-updates";
+  ```
+  4. Replace all in /etc/apt/apt.conf.d/10periodic with the following lines of code:
+  ```
+  // Do "apt-get update" automatically every day
+  APT::Periodic::Update-Package-Lists "1";
+
+  // Do "apt-get upgrade --download-only" every day
+  APT::Periodic::Download-Upgradeable-Packages "1";
+
+  // Run the "unattended-upgrade" security upgrade script
+  // every day
+  APT::Periodic::Unattended-Upgrade "1";
+
+  // Do "apt-get autoclean" every 7-days
+  APT::Periodic::AutocleanInterval "7";
+  
+  ```
+  NOTE: `APT::Periodic::Unattended-Upgrade "1";` requires the package "unattended-upgrades" and will write a log in /var/log/unattended- upgrades, which can be monitored for unattended package lists.
+  
+  
+  
   ## References
   
   1. [Amazon Lightsail](https://lightsail.aws.amazon.com)
