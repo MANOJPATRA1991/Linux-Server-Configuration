@@ -63,6 +63,16 @@ sudo ufw enable
 Edit the /etc/ssh/sshd_config file to set Port to 2200.
 Then restart the service with `sudo service ssh restart`.
 
+Then disable port 22 from firewall as follows:
+```
+sudo ufw deny 22
+```
+
+Check status of firewall with
+```
+sudo ufw status
+```
+
 
 ## Disable root login
 
