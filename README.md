@@ -7,9 +7,9 @@ This is the final project of Udacity's [Full Stack Web Development Nanodegree]()
 Set up an Apache server to serve the Item Catalog Project created as part of the Nanodegree program as a wsgi application.
 
 ## Set up Ubuntu Linux server instance on Amazon Lightsail
-URL: http://ec2-35-154-68-147.ap-south-1.compute.amazonaws.com/
+URL: http://ec2-13-126-178-229.ap-south-1.compute.amazonaws.com/
 
-IP address: 35.154.68.147
+IP address: 13.126.178.229
 
 Port: 2200
 
@@ -123,7 +123,7 @@ chmod 644 .ssh/authorized_keys
 
 Log in to grader account by
 ```
-ssh grader@35.154.68.147 -p 2200 -i ~/.ssh/project
+ssh grader@13.126.178.229 -p 2200 -i ~/.ssh/project
 
 ```
 
