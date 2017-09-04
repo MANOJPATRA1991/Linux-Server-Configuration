@@ -261,7 +261,8 @@ sudo apt-get install git
   #### Auto-update packages
   1. Install unattended-upgrades package
   ```
-  sudo dpkg-reconfigure --priority=low unattended-upgrades apt-listchanges
+  sudo dpkg-reconfigure --priority=low unattended-upgrades
+  sudo apt-get install apt-listchanges
   ```
   2. Add the following line to /etc/apt/apt.conf.d/20auto-upgrades so that the script generates more verbose output
   ```
@@ -289,6 +290,7 @@ sudo apt-get install git
   ```
   NOTE: `APT::Periodic::Unattended-Upgrade "1";` requires the package "unattended-upgrades" and will write a log in /var/log/unattended- upgrades, which can be monitored for unattended package lists.
   
+  ####
   
   
   ## References
