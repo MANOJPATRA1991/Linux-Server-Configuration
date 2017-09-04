@@ -290,7 +290,68 @@ sudo apt-get install git
   ```
   NOTE: `APT::Periodic::Unattended-Upgrade "1";` requires the package "unattended-upgrades" and will write a log in /var/log/unattended- upgrades, which can be monitored for unattended package lists.
   
-  ####
+  #### Security - Monitor failed login attempts
+  1. Install fail2ban
+  ```
+  sudo apt-get install fail2ban
+  ```
+  2. Install a package "sendmail" to receive relevant logs on the provided email:
+  ```
+  sudo apt-get install sendmail
+  ```
+  3.  Copy jail.conf to jail.local for editing.
+  NOTE: Never edit jail.conf as this file can be modified by package upgrades. All the editing is to be done in jail.local file.
+  ```
+  sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
+  ```
+  4. Update jail.local to include following lines of code:
+  ```
+  # [DEFAULT]
+  bantime = 3600
+  findtime = 600
+  maxretry = 3
+  destemail = patra.manoj0@gmail.com
+  sendername = Fail2Ban
+  mta = sendmail
+  action = $(action_mwl)s
+
+  ```
+  Ban time is 1 hour.
+  The mta parameter configures what mail service will be used to send mail. 
+  As we want the email to include the relevant log lines, you make use of action_mwl.
+  
+  5. Update sshd and ssh parameters:
+    ```
+  [sshd]
+  enabled = true
+
+  [ssh]
+  enabled = true
+  banaction = ufw-ssh
+  port = 2200
+  filter = sshd
+  logpath = /var/log/auth.log
+  maxretry = 3
+
+  ```
+  
+  6. Create a new file /etc/fail2ban/action.d/ufw-ssh.conf and add the following:
+  ```
+  [Definition]
+  actionstart =
+  actionstop =
+  actioncheck =
+  actionban = ufw insert 1 deny from <ip> to any app 2200
+  actionunban = ufw delete deny from <ip> to any app 2200
+  
+  ```
+  NOTE: This file will be executed if a ban occurs.
+  
+  7. Stop and restart the fail2ban service:
+  ```
+  sudo service fail2ban stop
+  sudo service fail2ban start
+  ```
   
   
   ## References
