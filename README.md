@@ -343,14 +343,15 @@ sudo apt-get install git
   actioncheck =
   actionban = ufw insert 1 deny from <ip> to any app 2200
   actionunban = ufw delete deny from <ip> to any app 2200
-  
   ```
   NOTE: This file will be executed if a ban occurs.
   
   7. Stop and restart the fail2ban service:
+  
   ```
   sudo service fail2ban stop
   sudo service fail2ban start
+  
   ```
   
   
