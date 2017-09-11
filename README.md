@@ -154,7 +154,10 @@ sudo apt-get install libapache2-mod-wsgi
 ```
 sudo apt-get install postgresql postgresql-contrib
 ```
-
+Login as superuser postgres
+```
+sudo su - postgres
+```
 Create a new database named "catalog" and create a new user named "dbuser" in postgressql.
 ```
 CREATE DATABASE catalog;
